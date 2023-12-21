@@ -16,3 +16,15 @@ output "availability_zone_suffixes" {
   value       = [for az in sort(data.aws_availability_zones.zones.names) : substr(az, -1, 1)]
   description = "Sorted list of availability zone suffixes (a, b, c, ...)"
 }
+
+output "cidr_block_world" {
+  value = "0.0.0.0/0"
+}
+
+output "timestamp" {
+  value = "${formatdate("YYMMDDHHmm", timestamp())}"
+}
+
+output "today" {
+  value = "${formatdate("YYMMDD", timestamp())}"
+}
